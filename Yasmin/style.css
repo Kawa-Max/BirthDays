@@ -118,6 +118,7 @@ body {
   display: block;
 }
 
+
 /* Texto abaixo das imagens */
 .lead,
 .message {
@@ -129,6 +130,14 @@ body {
   border-radius: 10px;
   font-size: 15px;
   color: #333;
+}
+
+@media (max-width: 400px){
+
+  #img_G {
+    display: none;
+  }
+  
 }
 
 /* Media query para tablets */
@@ -165,3 +174,4 @@ body {
     background-position: 0 0%;
   }
 }
+

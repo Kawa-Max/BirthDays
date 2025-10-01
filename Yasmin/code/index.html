@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrada do Cartão</title>
+  <style>
+    /* Tela cheia, centralizado */
+    body, html {
+      margin: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #000C1F, #00296B);
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+    }
+
+    .login-container {
+      background: rgba(0,0,0,0.8);
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #FFD700;
+      color: #000;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #FFC107;
+    }
+
+    .error {
+      color: #FF4C4C;
+      margin-top: 10px;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Para ver a próxima pagina, digite o nome corretamente</h2>
+    <input type="text" id="username" placeholder="nome corretamente">
+    <br>
+    <button id="enterBtn">Entrar</button>
+    <p class="error" id="errorMsg">Usuário inválido</p>
+  </div>
+
+  <script>
+    const authorizedName = "My Sun"; // nome permitido
+    const enterBtn = document.getElementById("enterBtn");
+    const usernameInput = document.getElementById("username");
+    const errorMsg = document.getElementById("errorMsg");
+
+    enterBtn.addEventListener("click", function() {
+      const enteredName = usernameInput.value.trim();
+      if(enteredName.toLowerCase() === authorizedName.toLowerCase()) {
+        // Redireciona para a página do cartão
+        window.location.href = "cartao.html"; // altere para o nome do seu arquivo HTML do cartão
+      } else {
+        errorMsg.style.display = "block";
+      }
+    });
+
+    // Permite pressionar Enter para enviar
+    usernameInput.addEventListener("keypress", function(e) {
+      if(e.key === "Enter") enterBtn.click();
+    });
+  </script>
+
+</body>
+</html>

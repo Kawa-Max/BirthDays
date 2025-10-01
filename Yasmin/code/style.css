@@ -1,0 +1,167 @@
+:root {
+  /* Fundo e cores principais */
+  --bg-dark: #0A0A0A;
+  --bg-gradient-start: #000C1F;
+  --bg-gradient-end: #01245e;
+
+  /* Blocos / cards */
+  --card-bg: #002A70B9;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Texto */
+  --text-primary: #4FC3F7;
+  --text-secondary: #0288D1;
+  --text-accent: #FFD700;
+  --text-muted: #C0C0C0;
+
+  /* Destaques / hover */
+  --accent: #FFC107;
+
+  /* Bordas / raio / espaçamentos */
+  --radius: 12px;
+  --pad: 12px;
+  --gap: 12px;
+  --maxw: 800px;
+
+  /* Fontes */
+  --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+
+body {
+  background: linear-gradient(180deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  color: var(--text-primary);
+
+   /* Fundo animado */
+  background: linear-gradient(180deg, var(--bg-gradient-start), var(--bg-gradient-end), var(--bg-gradient-start));
+  background-size: 100% 300%; /* aumenta altura para animação */
+  animation: moveBg 50s linear infinite; /* duração longa e suave */
+
+}
+
+.main {
+  width: 100%;
+  max-width: var(--maxw);
+  background: var(--card-bg);
+  border-radius: calc(var(--radius) + 6px);
+  box-shadow: 0 10px 30px var(--card-shadow);
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+/* Bloco principal */
+.block {
+  width: 100%;
+  padding: var(--pad);
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.block h1 {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  color: var(--text-primary);
+}
+
+#my {
+  color: var(--text-secondary);
+}
+
+#sun {
+  color: var(--text-accent);
+}
+
+.block p.lead {
+  margin: 0 0 16px 0;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Galerias */
+.galery {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile first: 1 coluna */
+  gap: var(--gap);
+  width: 100%;
+  justify-items: stretch;
+  margin-bottom: 12px;
+}
+
+.image {
+  width: 100%;
+  height: 150px; /* mobile */
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Texto abaixo das imagens */
+.lead,
+.message {
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+  background: rgba(255,255,255,0.6);
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #333;
+}
+
+/* Media query para tablets */
+@media (min-width: 481px) {
+  .galery {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 layout */
+  }
+
+  .image {
+    height: 280px; /* desktop */
+  }
+}
+/* Media query para desktops */
+@media (min-width: 981px) {
+  .galery {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 layout */
+  }
+
+  .image {
+    height: 300px; /* desktop */
+  }
+}
+
+
+/* Keyframes para mover o gradiente verticalmente */
+@keyframes moveBg {
+  0% {
+    background-position: 0 0%;
+  }
+  50% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 0 0%;
+  }
+}
